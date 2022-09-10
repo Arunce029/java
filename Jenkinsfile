@@ -5,8 +5,8 @@ pipeline {
             steps {
 				sh '''
 				mvn clean install
-				echo "building the application"
 				'''
+				echo "building the application"
             }
         }
         
