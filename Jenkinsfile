@@ -6,8 +6,14 @@ pipeline {
 				sh '''
 				mvn clean install
 				'''
-				echo "building the application"
-            }
-        }
+			}
+		}
+		stage('deploy') {
+			steps {
+				sh '''
+				cp /root/var/lib/jenkins/workspace/target/*.war /root/opt/tomcat/webapps
+				'''
+			}
+		}
     }
 }
