@@ -11,7 +11,7 @@ pipeline {
 		stage('deploy') {
 			steps {
 				sh '''
-				 cp /root/var/lib/jenkins/workspace/target/*.war /root/opt/tomcat/webapps
+				 cp /root/var/lib/jenkins/workspace/java_pipe1/target/*.war /root/opt/tomcat/webapps
 				'''
 			}
 		}
