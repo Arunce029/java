@@ -14,8 +14,13 @@ pipeline {
         stage ('Deploy') {
             steps {
               sshagent(['tomcat']) {
-                sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/hellowrd/*.war ec2-user@54.168.73.176:/opt/apache-tomcat-8.5.84/webapps/"
+                sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/hellowrd/*.war ec2-user@18.181.241.211:/opt/apache-tomcat-8.5.84/webapps/"
                 }
+            }
+        }
+        stage('create image') {
+            steps {
+                sh 'docker build -t hellowrd:1 .'
             }
         }
     }
