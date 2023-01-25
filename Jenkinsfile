@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git 'https://github.com/Arunce029/Java-repository.git'
+                git 'https://github.com/Arunce029/java.git'
             }
         }
         stage('Build') {
@@ -14,7 +14,7 @@ pipeline {
         stage ('Deploy') {
             steps {
               sshagent(['tomcat']) {
-                sh "scp -o StrictHostKeyChecking=no /home/ec2-user/Viju/* ec2-user@13.115.175.149:/opt/apache-tomcat-8.5.84/webapps"
+                sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/hellowrd/*.war ec2-user@54.168.73.176:/opt/apache-tomcat-8.5.84/webapps/"
                 }
             }
         }
